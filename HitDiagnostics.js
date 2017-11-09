@@ -1,7 +1,8 @@
 // HitDiagnostics.js
 
 const BadProcessException = require('./BadProcessException.js'),
-      BadDurationException = require('./BadDurationException.js');
+      BadDurationException = require('./BadDurationException.js'),
+      BinarySearch = require('./BinarySearch.js');
 
 const processHitTimes = {};
 const FIVE_MINUTES = 5 * 60 * 1000; // 5m in milliseconds.
