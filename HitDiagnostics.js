@@ -54,8 +54,8 @@ exports.getHitLog = function(process, duration) {
     let numProcessHits = 0;
 
     // Binary search hit log for smallest element that is still larger than THEN.
-    let myTest = function(x) { return x; }
-    let smallestIdx = BinarySearch(curProcess, myTest, then);
+    let tsFun = function(x) { return x; }
+    let smallestIdx = BinarySearch(curProcess, tsFun, then);
     if (smallestIdx >= 0) {
         numProcessHits = curProcess.length - smallestIdx + 1;
     }
