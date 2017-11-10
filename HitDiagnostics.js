@@ -41,7 +41,8 @@ exports.logHit = function(process) {
 // over the specified duration.
 exports.getHitLog = function(process, duration) {
     if (processHitTimes[process] == null) {
-        throw BadProcessException(process);
+        // No hits as yet logged. Just return 0.
+        return { process: process, numHits: 0 };
     }
 
     if (duration > FIVE_MINUTES || duration <= 0) {
@@ -55,9 +56,9 @@ exports.getHitLog = function(process, duration) {
 
     // Binary search hit log for smallest element that is still larger than THEN.
     let tsFun = function(x) { return x; }
-    let smallestIdx = BinarySearch(curProcess, tsFun, then);
+    let smallestIdx = BinarySearch.find(curProcess, tsFun, then);
     if (smallestIdx >= 0) {
-        numProcessHits = curProcess.length - smallestIdx + 1;
+        numProcessHits = curProcess.length - smallestIdx;
     }
 
     return { process: process, numHits: numProcessHits };

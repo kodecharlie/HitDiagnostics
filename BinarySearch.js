@@ -1,6 +1,6 @@
 // BinarySearch.js
 
-exports.BinarySearch = function BinarySearch(a, f, c) {
+exports.find = function BinarySearch(a, f, c) {
 	if (f(a[0]) > c) return 0;
 	if (f(a[a.length - 1]) <= c) return -1;
 	var lo = 0;
